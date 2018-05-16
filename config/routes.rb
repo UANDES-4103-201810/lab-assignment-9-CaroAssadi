@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   get '/people/new', to: 'people#new'
   post '/people/create', to: 'people#create'
-
-  root 'people#index'
+  get '/people', to:'people#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,28 @@
+<h1> CREATE NEW PERSON </h1>
+
+<%= form_tag('/people/create', method: 'POST') do %>
+  <div class="field">
+  <%= label_tag :first_name %>
+  <%= text_field_tag('person', :first_name ) %> 
+   </div>
+  <div class="field">
+  <%= label_tag :last_name %>
+  <%= text_field_tag('person', :last_name ) %>
+  </div>
+  <div class="field">
+  <%= label_tag :description %>
+  <%= text_area_tag('person', :description ) %>
+  </div>
+  <div class="field">
+  <%= label_tag :birth_date %>
+  <%= date_field('person', :birth_date ) %>
+  </div>
+  <div class="field">
+  <%= label_tag :role %>
+  <%= radio_button_tag('director', 'director') %> Director
+  </div>
+  <div class="field">
+  <%= radio_button_tag('actor', 'actor') %> Actor
+  </div>
+  <%= submit_tag("Submit") %>
+<% end %>
