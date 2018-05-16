@@ -1,8 +1,18 @@
 class PeopleController < ApplicationController
 
   def index
-    @directors = Director.all
-    @actors = Actor.all
+    
+    
+    if params[:q]=='actor'
+     	@actors = Actor.all
+    else if params[:q] =='director'
+     	@directors = Director.all
+    else
+	@actors = Actor.all
+	@directors = Director.all
+    
+    end
+    end
 
   end
   def new
@@ -11,6 +21,7 @@ class PeopleController < ApplicationController
   def create
 	if params[:type]== "Actor"
       @actor = Actor.create(first_name:params[:first_name],last_name:params[:last_name],birth_date:params[:birth_name],description: params[:description])
+      redirect_to '/persons?q=actor'
 
 	respond_to do |format|
       	      if @actor.save
@@ -35,4 +46,7 @@ class PeopleController < ApplicationController
     end
 
   end
+def person_params
+      params.require(:person).permit(:first_name, :last_name, :birth_date, :description)
+    end
 end
