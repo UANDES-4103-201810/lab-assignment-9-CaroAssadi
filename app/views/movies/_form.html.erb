@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.fields_for :address_attributes, @movie.address do |f| %>
+    <%= form.fields_for :addresses do |f| %>
     <div class="field">
     <%= f.label :street %>
     <%= f.text_field :street %>

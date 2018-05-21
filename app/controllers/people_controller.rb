@@ -19,7 +19,8 @@ class PeopleController < ApplicationController
 
   end
   def create
-	if params[:type]== "Actor"
+ 	
+	if params[:role]== "actor"
       @actor = Actor.create(first_name:params[:first_name],last_name:params[:last_name],birth_date:params[:birth_name],description: params[:description])
       redirect_to '/persons?q=actor'
 
